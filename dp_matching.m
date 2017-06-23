@@ -10,13 +10,13 @@
 %% 結果１（同一話者）
 
 % city011&city012
-%tic;RecogRate(city011,city012);toc;
+tic;RecogRate(city011,city012);toc;
 % 局所距離を2倍で計算(認識率=100%,経過時間=85s)
 % 局所距離をsqrt(2)倍で計算(認識率=100%,経過時間=84s)
 % 局所距離を1倍で計算(認識率=100%,経過時間=84s)
 
 % city021&city022
-%tic;RecogRate(city021,city022);toc;
+tic;RecogRate(city021,city022);toc;
 % 局所距離を2倍で計算(認識率=100%,経過時間=57s)
 % 局所距離をsqrt(2)倍で計算(認識率=100%,経過時間=56s)
 % 局所距離を1倍で計算(認識率=100%,経過時間=56s)
@@ -24,42 +24,25 @@
 %% 結果２（別話者）
 
 % city011&city021
-%tic;RecogRate(city011,city021);toc;
-X = [1 sqrt(2) 2];
-figure
-diff1 = [92 92 83];
-plot(X, diff1)
-title('局所係数と各認識率の変化の推移（別話者）')
-xlabel('局所距離係数')
-ylabel('認識率（%）')
+tic;RecogRate(city011,city021);toc;
 % 局所距離を2倍で計算(認識率=83%,経過時間=68s)
 % 局所距離をsqrt(2)倍で計算(認識率=92%,経過時間=67s)
 % 局所距離を1倍で計算(認識率=92%,経過時間=67s) 
 
 % city011&city022
-%tic;RecogRate(city011,city022);toc;
-hold on
-diff2 = [95 94 86];
-plot(X, diff2)
+tic;RecogRate(city011,city022);toc;
 % 局所距離を2倍で計算(認識率=86%,経過時間=70s)
 % 局所距離をsqrt(2)倍で計算(認識率=94%,経過時間=70s)
 % 局所距離を1倍で計算(認識率=95%,経過時間=70s)
 
 % city012&city021
-%tic;RecogRate(city012,city021);toc;
-hold on
-diff3 = [99 98 91];
-plot(X, diff3)
+tic;RecogRate(city012,city021);toc;
 % 局所距離を2倍で計算(認識率=91%,経過時間=68s)
 % 局所距離をsqrt(2)倍で計算(認識率=98%,経過時間=67s)
 % 局所距離を1倍で計算(認識率=99%,経過時間=67s)
 
 % city012&city022
-%tic;RecogRate(city012,city022);toc;
-hold on
-diff4 = [98 95 94];
-plot(X, diff4)
-legend('011&021','011&022','012&021','012&022')
+tic;RecogRate(city012,city022);toc;
 % 局所距離を2倍で計算(認識率=94%,経過時間=71s)
 % 局所距離をsqrt(2)倍で計算(認識率=95%,経過時間=70s)
 % 局所距離を1倍で計算(認識率=98%,経過時間=70s)
