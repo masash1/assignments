@@ -64,43 +64,6 @@ legend('011&021','011&022','012&021','012&022')
 % 局所距離をsqrt(2)倍で計算(認識率=95%,経過時間=70s)
 % 局所距離を1倍で計算(認識率=98%,経過時間=70s)
 
-%% テキストファイルからデータをインポート（read_file.m）
-% 全てのデータを順番にセル配列にセットする
-city022 = cell(100,1);
-for i = 1:100
-% 変数を初期化
-if i < 10
-    filename = ['/Users/kmasash1/Desktop/city_mcepdata/city022/city022_00' int2str(i) '.txt'];
-elseif i < 100
-    filename = ['/Users/kmasash1/Desktop/city_mcepdata/city022/city022_0' int2str(i) '.txt'];
-else
-    filename = ['/Users/kmasash1/Desktop/city_mcepdata/city022/city022_' int2str(i) '.txt'];
-end
-delimiter = ' ';
-startRow = 4;
-
-% テキストの各行の書式設定
-formatSpec = '%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%[^\n\r]';
-
-% テキストファイルを開く
-fileID = fopen(filename,'r');
-
-% データの列を書式設定に従って読み取る
-dataArray = textscan(fileID, formatSpec, 'Delimiter', delimiter, 'MultipleDelimsAsOne', true,...
-    'TextType', 'string', 'HeaderLines' ,startRow-1, 'ReturnOnError', false, 'EndOfLine', '\r\n');
-
-% テキストファイルを閉じる
-fclose(fileID);
-
-% インポートできないデータの後処理
-
-% 出力変数の作成
-city022{i}= [dataArray{1:end-1}];
-% 一時変数のクリア
-clearvars filename delimiter startRow formatSpec fileID dataArray ans;
-
-end
-
 %% 関数１（単語間距離）
 function wd = word_dist(a,b)
 % 単語情報を含む配列a,bを引数とし、類似性を単語間距離wdとして返す。
